@@ -40,9 +40,14 @@ h2 {
 }
 
 .contador {
-  align-items: center;
-  font-size: 1.2em;
-  padding: 1em 0.5em 0em 0em;
+    font-size: 1.2em;
+    padding: 0.5em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin: -4em 0em 0em 0em;
+}
 }
 
 .cuenta {
