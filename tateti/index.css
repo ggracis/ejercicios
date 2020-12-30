@@ -32,7 +32,7 @@ h2 {
 
 .tablero {
   position: relative;
-  top: 60px;
+  top: 2em;
   display: flex;
   flex-direction: row;
   align-content: center;
@@ -40,29 +40,25 @@ h2 {
 }
 
 .contador {
-  display: flex;
-  flex-direction: column;
   align-items: center;
-  font-size: 22px;
-}
-
-.contador span {
-  margin: 1em;
+  font-size: 1.2em;
+  padding: 1em 0.5em 0em 0em;
 }
 
 .cuenta {
-  width: 100px;
-  height: 100px;
+  width: 3em;
+  height: 3em;
   border-radius: 15px;
   background: #000000c9;
   display: flex;
   align-items: center;
   justify-content: center;
   color: #ffffff;
-  font-size: 30px;
+  font-size: 1.5em;
   font-weight: bold;
   bottom: 40px;
   position: relative;
+  margin: 2em 0em 0em 0em;
 }
 
 .botonera {
@@ -88,8 +84,8 @@ h2 {
   transition: all 0.4s;
   color: #ffffff;
   font-size: 3em;
-  width: 3em;
-  height: 3em;
+  width: 2em;
+  height: 2em;
 }
 
 .btn:hover {
@@ -103,10 +99,11 @@ h2 {
 }
 
 .reset {
-  height: 80px;
-  width: 80px;
-  border-radius: 50%;
-  margin-top: 40px;
+    height: 2em;
+    width: 2em;
+    border-radius: 50%;
+    margin-top: 0.2em;
+    background: #e67676;
 }
 
 .estado {
@@ -135,68 +132,46 @@ h2 {
   background: #d30303;
 }
 
-
-
-
 .ganador {
-    animation: text-shadow 1.5s ease-in-out infinite;
-    font-size: 6em;
-    font-weight: 900;
-    line-height: 1;
+  animation: text-shadow 1.5s ease-in-out infinite;
+  font-size: 6em;
+  font-weight: 900;
+  line-height: 1;
 }
 
-
 @keyframes text-shadow {
-    0% {  
-        transform: translateY(0);
-        text-shadow: 
-            0 0 0 #0c2ffb, 
-            0 0 0 #2cfcfd, 
-            0 0 0 #fb203b, 
-            0 0 0 #fefc4b;
-    }
+  0% {
+    transform: translateY(0);
+    text-shadow: 0 0 0 #0c2ffb, 0 0 0 #2cfcfd, 0 0 0 #fb203b, 0 0 0 #fefc4b;
+  }
 
-    20% {  
-        transform: translateX(-1em);
-        text-shadow: 
-            0 0.125em 0 #0c2ffb, 
-            0 0.25em 0 #2cfcfd, 
-            0 -0.125em 0 #fb203b, 
-            0 -0.25em 0 #fefc4b;
-    }
+  20% {
+    transform: translateX(-1em);
+    text-shadow: 0 0.125em 0 #0c2ffb, 0 0.25em 0 #2cfcfd, 0 -0.125em 0 #fb203b,
+      0 -0.25em 0 #fefc4b;
+  }
 
-    40% {  
-        transform: translateX(0.5em);
-        text-shadow: 
-            0 -0.0625em 0 #0c2ffb, 
-            0 -0.125em 0 #2cfcfd, 
-            0 0.0625em 0 #fb203b, 
-            0 0.125em 0 #fefc4b;
-    }
-    
-   60% {
-        transform: translateX(-0.25em);
-        text-shadow: 
-            0 0.03125em 0 #0c2ffb, 
-            0 0.0625em 0 #2cfcfd, 
-            0 -0.03125em 0 #fb203b, 
-            0 -0.0625em 0 #fefc4b;
-    }
+  40% {
+    transform: translateX(0.5em);
+    text-shadow: 0 -0.0625em 0 #0c2ffb, 0 -0.125em 0 #2cfcfd,
+      0 0.0625em 0 #fb203b, 0 0.125em 0 #fefc4b;
+  }
 
-    80% {  
-        transform: translateX(0);
-        text-shadow: 
-            0 0 0 #0c2ffb, 
-            0 0 0 #2cfcfd, 
-            0 0 0 #fb203b, 
-            0 0 0 #fefc4b;
-    }
+  60% {
+    transform: translateX(-0.25em);
+    text-shadow: 0 0.03125em 0 #0c2ffb, 0 0.0625em 0 #2cfcfd,
+      0 -0.03125em 0 #fb203b, 0 -0.0625em 0 #fefc4b;
+  }
 
+  80% {
+    transform: translateX(0);
+    text-shadow: 0 0 0 #0c2ffb, 0 0 0 #2cfcfd, 0 0 0 #fb203b, 0 0 0 #fefc4b;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
-    * {
-      animation: none !important;
-      transition: none !important;
-    }
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
 }
