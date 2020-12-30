@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es ">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TA TE TI - Gastón Gracis</title>
+    <link rel="stylesheet" href="index.css" />
+  </head>
+  <body>
+    <div class="contenedor">
+      <h1>TA TE TI</h1>
+
+      <div class="estado">
+        <h2>Partida N°: <span id="partida"></span></h2>
+        
+        <span id="estado" class="estado_vivo">Comienza la partida el jugador X</span>
+        <span id="jugadas" class="jugadas"></span>
+        <span id="restart_lbl" class="reiniciar">
+          Presiona <span class="circle"><i class="fas fa-sync"></i></span> para
+          volver a jugar
+        </span>
+      </div>
+
+      <div class="tablero">
+        <div class="contador">
+          <span>Victorias de X</span>
+          <span class="cuenta" id="ganadasX">0</span>
+          <span>Victorias de O</span>
+          <span class="cuenta" id="ganadasO">0</span>
+        </div>
+
+        <div class="botonera">
+          <div class="fila">
+            <button class="btn" id="boton1"></button>
+            <button class="btn" id="boton2"></button>
+            <button class="btn" id="boton3"></button>
+          </div>
+          <div class="fila">
+            <button class="btn" id="boton4"></button>
+            <button class="btn" id="boton5"></button>
+            <button class="btn" id="boton6"></button>
+          </div>
+          <div class="fila">
+            <button class="btn" id="boton7"></button>
+            <button class="btn" id="boton8"></button>
+            <button class="btn" id="boton9"></button>
+          </div>
+
+          <div class="fila">
+            <button class="btn reset" id="botonReset">
+                ⭯
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="tateti.js"></script>
+  </body>
+</html>
