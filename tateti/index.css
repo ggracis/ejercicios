@@ -145,6 +145,10 @@ h2 {
   background: #d30303;
 }
 
+.foot {
+  margin: 5em;
+}
+
 .ganador {
   animation: text-shadow 1.5s ease-in-out infinite;
   font-size: 6em;
