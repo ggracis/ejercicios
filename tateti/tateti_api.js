@@ -42,6 +42,7 @@ const declararGanador = (ganador) => {
 
 /* Declaro un empate */
 const declararEmpate = () => {
+  document.getElementById("botonSugerir").disabled = true;
   estado.innerHTML = `¡ESTO ES UN EMPATE!`;
 };
 
@@ -134,14 +135,17 @@ const juega = (id) => {
   botonJugado.innerHTML = `${Jugador}`;
   if (Jugador == "X") {
     jugadores[0].jugadas.push(id);
+    armarJugada("X", id);
   } else if (Jugador == "O") {
     jugadores[1].jugadas.push(id);
+    armarJugada("O", id);
   }
   cambiarJugador();
   estado.innerHTML = `Ahora juega ${Jugador}`;
   verificaGanador();
   Jugada++;
-  console.log(Jugada);
+  //console.log(Jugada);
+  fetchRespuestas();
 };
 
 /* Reseteo la partida */
@@ -151,6 +155,8 @@ const resetear = () => {
   jugadores[1].jugadas = [];
   Jugador = "X";
   ganador = "";
+  jugadaAPI = "---------";
+  document.getElementById("botonSugerir").disabled = false;
   Jugada = 1;
   for (let i = 1; i <= 9; i++) {
     document.getElementById(`boton${i}`).innerHTML = "";
@@ -158,6 +164,8 @@ const resetear = () => {
   }
   estado.innerHTML = `Ahora juega ${Jugador}`;
   partida.innerHTML = `${Partida}`;
+  document.getElementById("jugadas").innerHTML = ``;
+  fetchRespuestas();
 };
 
 /* Cargo los botones y los listener*/
@@ -170,26 +178,55 @@ function cargarBotones() {
   document
     .getElementById("botonReset")
     .addEventListener("click", () => resetear());
+  document
+    .getElementById("botonSugerir")
+    .addEventListener("click", () => sugerirJugada());
 }
 
 /* API */
+var jugadaAPI = "---------";
+function armarJugada(jugador, jugada) {
+  console.log(`Jugador: ${jugador}`);
+  console.log(`Jugada: ${jugada}`);
+  String.prototype.replaceAt = function (index, replacement) {
+    if (index >= this.length) {
+      return this.valueOf();
+    }
+    return this.substring(0, index) + replacement + this.substring(index + 1);
+  };
 
+  jugadaAPI = jugadaAPI.replaceAt(jugada - 1, jugador);
+  console.log(jugadaAPI);
+}
 async function fetchRespuestas() {
-  fetch("https://stujo-tic-tac-toe-stujo-v1.p.rapidapi.com/---------/x", {
-    method: "GET",
-    headers: {
-      "x-rapidapi-key": "0c640c5766msh80fa95c617e616ep103901jsn05c8e3139f6d",
-      "x-rapidapi-host": "stujo-tic-tac-toe-stujo-v1.p.rapidapi.com",
-    },
-  })
+  fetch(
+    `https://stujo-tic-tac-toe-stujo-v1.p.rapidapi.com/${jugadaAPI}/${Jugador}`,
+    {
+      method: "GET",
+      headers: {
+        "x-rapidapi-key": "0c640c5766msh80fa95c617e616ep103901jsn05c8e3139f6d",
+        "x-rapidapi-host": "stujo-tic-tac-toe-stujo-v1.p.rapidapi.com",
+      },
+    }
+  )
     .then((response) => {
       console.log(response);
+      const traeRespuesta = async () => {
+        const respuesta = await response.json();
+        console.log(respuesta);
+        console.log(respuesta.game);
+        jugadaSugerida = respuesta.recommendation;
+      };
+      traeRespuesta();
     })
     .catch((err) => {
       console.error(err);
     });
 }
-
+function sugerirJugada() {
+  document.getElementById(`boton${jugadaSugerida + 1}`).click();
+}
+/* */
 const start = async () => {
   cargarBotones();
   partida.innerHTML = `${Partida}`;

@@ -40,13 +40,13 @@ h2 {
 }
 
 .contador {
-    font-size: 1.2em;
-    padding: 0.5em;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    margin: -4em 0em 0em 0em;
+  font-size: 1.2em;
+  padding: 0.5em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin: -4em 0em 0em 0em;
 }
 
 .cuenta {
@@ -104,11 +104,19 @@ h2 {
 }
 
 .reset {
-    height: 2em;
-    width: 2em;
-    border-radius: 50%;
-    margin-top: 0.2em;
-    background: #e67676;
+  height: 2em;
+  width: 2em;
+  border-radius: 50%;
+  margin-top: 0.2em;
+  background: #e67676;
+}
+
+.sugerir {
+  height: 2em;
+  width: 2em;
+  border-radius: 50%;
+  margin-top: 0.2em;
+  background: #0e8a37;
 }
 
 .estado {
